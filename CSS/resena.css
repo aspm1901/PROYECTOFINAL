@@ -1,0 +1,114 @@
+.container {
+  max-width: 800px;
+  margin: 20px auto;
+  background: rgb(204, 204, 204);
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  color: black;
+  text-shadow: none;
+}
+
+.container h2,
+.container h3 {
+  font-weight: bold;
+  color: black;
+  text-shadow: none;
+}
+
+.container p {
+  color: black;
+  text-shadow: none;
+}
+
+.container form input[type="text"],
+.container form textarea {
+  color: black;
+  text-shadow: none;
+}
+
+.review {
+  border-bottom: 1px solid #ddd;
+  padding: 10px 0;
+}
+.review h3 {
+  margin: 0;
+  color: #000000;
+  text-shadow: none;
+}
+.review p {
+  color: #0a0a0a;
+  text-shadow: none;
+}
+form {
+  margin-top: 20px;
+}
+input[type="text"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  text-shadow: none;
+}
+input[type="submit"] {
+  background: #28a745;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 5px;
+  text-shadow: none;
+}
+input[type="submit"]:hover {
+  background: #218838;
+}
+footer {
+  text-align: center;
+  padding: 10px 0;
+  background: #333;
+  color: #fff;
+  text-shadow: none;
+}
+@media (max-width: 768px) {
+  .container {
+    padding: 15px;
+  }
+
+  .review {
+    padding: 8px 0;
+  }
+
+  input[type="submit"] {
+    width: 100%;
+    padding: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+    padding: 10px;
+    font-size: 18px;
+  }
+
+  .container {
+    padding: 10px;
+  }
+
+  .container h2,
+  .container h3 {
+    font-size: 1.2em;
+  }
+
+  input[type="text"],
+  textarea {
+    padding: 8px;
+    margin: 4px 0;
+  }
+
+  input[type="submit"] {
+    padding: 10px;
+    font-size: 16px;
+  }
+}

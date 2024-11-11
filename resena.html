@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Reseñas de productos</title>
+    <link rel="stylesheet" href="CSS/resena.css" />
+    <link rel="stylesheet" href="CSS/style3.css" />
+    <script
+      src="https://unpkg.com/react@18/umd/react.development.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/@babel/standalone/babel.min.js"
+      crossorigin
+    ></script>
+    <script src="JS/scripts.js" type="text/babel"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+      const App = () => {
+        const [reviews, setReviews] = React.useState([
+          {
+            name: "PEPITO1334",
+            text: "¡Me encanta este producto! La calidad es excelente y cumple con lo prometido.",
+          },
+          {
+            name: "JoshuaCastillo",
+            text: "No estoy satisfecho con este producto. No funcionó como esperaba.",
+          },
+          {
+            name: "ANTIBUSH",
+            text: "Buena relación calidad-precio. Lo recomendaría a mis amigos.",
+          },
+          {
+            name: "ELROBACUNAS",
+            text: "El diseño es moderno y funcional. Estoy muy contento con mi compra.",
+          },
+          {
+            name: "LASDE13SON",
+            text: "Una experiencia decepcionante. No cumple con las expectativas.",
+          },
+          {
+            name: "ValentínF",
+            text: "Excelente servicio al cliente y un producto de alta calidad.",
+          },
+          {
+            name: "OMEGALOL",
+            text: "Un buen producto, pero el precio es un poco elevado.",
+          },
+          {
+            name: "ositogominola",
+            text: "Me sorprendió gratamente. Superó mis expectativas en todos los sentidos.",
+          },
+          {
+            name: "EsoTilin002",
+            text: "Una excelente compra. Funciona perfectamente y es fácil de usar.",
+          },
+          {
+            name: "Goku",
+            text: "Lo he estado usando durante semanas y no he tenido ningún problema.",
+          },
+        ]);
+
+        const handleSubmit = (event) => {
+          event.preventDefault();
+          const name = event.target.productName.value;
+          const text = event.target.reviewText.value;
+          setReviews([...reviews, { name, text }]);
+          event.target.reset();
+        };
+
+        return (
+          <div className="flex flex-col min-h-screen">
+            <Header />
+
+            <div className="container">
+              <h2>Reseñas</h2>
+              <section id="reviews" className="reviews">
+                {reviews.map((review, index) => (
+                  <div key={index} className="review">
+                    <h3>{review.name}</h3>
+                    <p>{review.text}</p>
+                  </div>
+                ))}
+              </section>
+              <h2>Agregar Reseña</h2>
+              <form id="reviewForm" onSubmit={handleSubmit}>
+                <input
+                  type="text"
+                  name="productName"
+                  placeholder="Nombre del Producto"
+                  required
+                />
+                <textarea
+                  name="reviewText"
+                  rows="4"
+                  placeholder="Escribe tu reseña aquí..."
+                  required
+                ></textarea>
+                <input type="submit" value="Enviar Reseña" />
+              </form>
+            </div>
+
+            <Footer />
+          </div>
+        );
+      };
+
+      ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+    </script>
+  </body>
+</html>

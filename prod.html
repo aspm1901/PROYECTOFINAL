@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>GameVerse - Tu mundo de juegos</title>
+    <link rel="stylesheet" href="CSS/style3.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/@babel/standalone/babel.min.js"
+    ></script>
+  </head>
+  <body class="min-h-screen flex flex-col">
+    <div id="root" class="flex-grow"></div>
+    <script type="text/babel" src="js/prod.js"></script>
+    <script type="text/babel" src="js/scripts.js"></script>
+    <script type="text/babel" src="js/popup.js"></script>
+    <script type="text/babel">
+      class App extends React.Component {
+        constructor(props) {
+          super(props);
+          this.state = {
+            gamesData: [],
+          };
+        }
+
+        componentDidMount() {
+          fetch("./js/games.data.json")
+            .then((response) => response.json())
+            .then((data) => this.setState({ gamesData: data }))
+            .catch((error) => console.error("Hay un error", error));
+        }
+
+        render() {
+          return (
+            <div className="flex flex-col min-h-screen">
+              <Header2 />
+              <section id="game-list">
+                {this.state.gamesData.map((game) => (
+                  <Prod key={game.id} game={game} />
+                ))}
+              </section>
+              <Footer />
+            </div>
+          );
+        }
+      }
+
+      const root = ReactDOM.createRoot(document.getElementById("root"));
+      root.render(<App />);
+    </script>
+  </body>
+</html>
