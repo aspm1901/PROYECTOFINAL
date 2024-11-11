@@ -39,7 +39,7 @@
         }
 
         componentDidMount() {
-          fetch("./js/games.data.json")
+          fetch("./JS/games.data.json")
             .then((response) => response.json())
             .then((data) => this.setState({ gamesData: data }))
             .catch((error) => console.error("Hay un error", error));
