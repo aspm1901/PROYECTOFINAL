@@ -26,9 +26,8 @@
     <script src="JS/scripts.js" type="text/babel"></script>
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
-  <body>
-    <div id="root"></div>
-
+  <body class="min-h-screen flex flex-col">
+    <div id="root" class="flex-grow"></div>
     <script type="text/babel">
       const App = () => {
         const [reviews, setReviews] = React.useState([
